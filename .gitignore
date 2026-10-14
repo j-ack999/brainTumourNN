@@ -1,0 +1,4 @@
+cleaned/ 
+Training/ 
+Testing/ 
+*.pth
