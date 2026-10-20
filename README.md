@@ -8,4 +8,9 @@ The first dataset that I have looked at is https://www.kaggle.com/datasets/masou
  
  Transformation of Data
  - Pixel intensities have been shifted from ranging from [0,1] now to [-1,1]
- - This has been done to help the optimisation step later on. It may give better accuracy in the weight update steps since we are centered around zero. 
+ - This has been done to help the optimisation step later on. It may give better accuracy in the weight update steps since we are centered around zero.
+
+Resources I have used to help me in the creation of this CNN
+https://docs.pytorch.org/tutorials/beginner/basics/data_tutorial.html
+https://docs.pytorch.org/vision/main/generated/torchvision.datasets.ImageFolder.html
+https://github.com/mpirrall/pytorch-neural-network-tutorial-using-MNIST
