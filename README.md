@@ -15,3 +15,4 @@ https://docs.pytorch.org/tutorials/beginner/basics/data_tutorial.html
 https://docs.pytorch.org/vision/main/generated/torchvision.datasets.ImageFolder.html
 https://github.com/mpirrall/pytorch-neural-network-tutorial-using-MNIST
 https://www.geeksforgeeks.org/python/python-dictionary-comprehension/
+https://pillow.readthedocs.io/en/stable/reference/Image.html
