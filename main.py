@@ -1,5 +1,5 @@
 #           imports             #
-from torchvision import datasets
+import torchvision
 from torch.utils.data import Subset
 from torch.utils.data import Dataset
 from sklearn.model_selection import train_test_split
@@ -9,7 +9,7 @@ import os
 from collections import Counter
 from PIL import Image
 import numpy as np
-import matplotlib.pyplot as mp
+import matplotlib.pyplot as plt
 import pandas as pd
 
 
@@ -88,8 +88,8 @@ def main():
     indices = list(range(len(full_train)))
     # list of labels
     labels = [label for path, label in full_train.samples] # for path, label in fulltrainsamples: labels.append(label)
-    print(labels[1])
-    print(dataset.samples[1])
+    # print(labels[1])
+    # print(dataset.samples[1])
     train_idx, val_idx = train_test_split(indices, test_size=0.2, random_state=SEED, stratify=labels) # validation set sized at 20% 
     # stratisfy simply ensures each class has the same proportion in train as it does in the validation set
     
@@ -97,15 +97,51 @@ def main():
     # print(len(val_idx))
     # print(len(dataset.samples)) # how many samples do we have in our cleaned training data? 
     # print(dataset.samples[4444]) # what is the label of x sample? format of path, label, where path is the path in memory 
-   
+    
 
+    batch_size = 32
+
+    train_set = Subset(full_train, train_idx) # use full_train but only in the positions specified by train_idx 
+    val_set = Subset(full_train, val_idx)
 
     # use of a validation set and a training set here is not trivial 
     # this is the standard of NN's since we want to test the network to tweak the architecture on a completely different set so the model does not learn from this data
 
 
+    train_loader = torch.utils.data.DataLoader(train_set, batch_size=batch_size, shuffle=True, num_workers=0)
+    val_loader = torch.utils.data.DataLoader(val_set, batch_size=batch_size, shuffle=False, num_workers=0)
+    # no need to shuffle the validation set 
+    # note that running trainset[i] gives us (image_tensor, label)
 
-print(sorted((os.listdir("cleaned/Training")))) # 'glioma', 'meningioma', 'notumor', 'pituitary'
+    # list of every class we have 
+    classes = []
+    for i in dataset.class_to_idx:
+        classes.append(i)
+
+        
+
+    
+    # Code from pytorch cifar tutorial to visualise the batches 
+
+    def imshow(img):
+        img = img / 2 + 0.5     
+        npimg = img.numpy()
+        plt.imshow(np.transpose(npimg, (1, 2, 0)))
+        plt.show()
+
+
+    # get some random training images
+    dataiter = iter(train_loader)
+    images, batch_labels = next(dataiter)
+
+    # show images
+    imshow(torchvision.utils.make_grid(images))
+    # print labels for the batch
+    print(' '.join(f'{classes[batch_labels[j]]:5s}' for j in range(batch_size)))
+
+    
+
+
 
 
 

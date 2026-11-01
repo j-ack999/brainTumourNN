@@ -10,9 +10,21 @@ The first dataset that I have looked at is https://www.kaggle.com/datasets/masou
  - Pixel intensities have been shifted from ranging from [0,1] now to [-1,1]
  - This has been done to help the optimisation step later on. It may give better accuracy in the weight update steps since we are centered around zero.
 
+
+For reference when programming: 
+
+Training Folder has 5600 images which is split up between 4 classes giving 1400 images in each class
+- the training folder is made of 2 subfolders which are the vaidation and training subsets of 1120 and 4480 images per subset respectively 
+
+
+
+
+
+
 Resources I have used to help me in the creation of this CNN
 https://docs.pytorch.org/tutorials/beginner/basics/data_tutorial.html
 https://docs.pytorch.org/vision/main/generated/torchvision.datasets.ImageFolder.html
 https://github.com/mpirrall/pytorch-neural-network-tutorial-using-MNIST
 https://www.geeksforgeeks.org/python/python-dictionary-comprehension/
 https://pillow.readthedocs.io/en/stable/reference/Image.html
+https://docs.pytorch.org/docs/2.15/data.html
