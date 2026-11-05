@@ -83,7 +83,7 @@ dataset = BrainTumourDataset("cleaned", "Training")
 
 
 def main():
-    data_inspection() # **UNCOMMENT AND RUN AT EACH SESSION**
+    # data_inspection() # **UNCOMMENT AND RUN AT EACH SESSION**
     full_train = BrainTumourDataset("cleaned", "Training", transform=transform)
     indices = list(range(len(full_train)))
     # list of labels
@@ -138,6 +138,8 @@ def main():
     imshow(torchvision.utils.make_grid(images))
     # print labels for the batch
     print(' '.join(f'{classes[batch_labels[j]]:5s}' for j in range(batch_size)))
+
+    
 
     
 

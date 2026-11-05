@@ -29,9 +29,15 @@ https://github.com/mpirrall/pytorch-neural-network-tutorial-using-MNIST
 https://www.geeksforgeeks.org/python/python-dictionary-comprehension/
 https://pillow.readthedocs.io/en/stable/reference/Image.html
 https://docs.pytorch.org/docs/2.15/data.html
+https://literaryno4.github.io/cs231n-assignments-note5-Convolutional-neural-network.html/
+https://vinesmsuic.github.io/cnn2/
 My own neural network projects done previous to this 
 
 <img width="640" height="480" alt="unnormalisedBatch" src="https://github.com/user-attachments/assets/11929ce3-a4d3-40d9-9b60-840f673c2ff8" />
 
 <img width="1920" height="967" alt="normalisedBatch" src="https://github.com/user-attachments/assets/f990afff-dab1-49a7-9150-dd626ee74df5" />
+
+
+An image from https://literaryno4.github.io/cs231n-assignments-note5-Convolutional-neural-network.html/ outlining a suitable architecture for this sort of problem that I will adapt. This documentation talks about the FC layer containing ten different scores each relating to a different class but obviously for this application I will only have 4 different classes, being that we have four unique classes for the network to guess from, that is, glioma, meningioma, notumour and pituitary
+![alt text](image.png)
 
