@@ -21,10 +21,17 @@ Training Folder has 5600 images which is split up between 4 classes giving 1400 
 
 
 
-Resources I have used to help me in the creation of this CNN
+Resources I have used to help me in the development of this Project: 
+
 https://docs.pytorch.org/tutorials/beginner/basics/data_tutorial.html
 https://docs.pytorch.org/vision/main/generated/torchvision.datasets.ImageFolder.html
 https://github.com/mpirrall/pytorch-neural-network-tutorial-using-MNIST
 https://www.geeksforgeeks.org/python/python-dictionary-comprehension/
 https://pillow.readthedocs.io/en/stable/reference/Image.html
 https://docs.pytorch.org/docs/2.15/data.html
+My own neural network projects done previous to this 
+
+<img width="640" height="480" alt="unnormalisedBatch" src="https://github.com/user-attachments/assets/11929ce3-a4d3-40d9-9b60-840f673c2ff8" />
+
+<img width="1920" height="967" alt="normalisedBatch" src="https://github.com/user-attachments/assets/f990afff-dab1-49a7-9150-dd626ee74df5" />
+
