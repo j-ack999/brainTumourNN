@@ -1,28 +1,60 @@
-# INTENDED ARCHITECTURE FOR THE PROBLEM # 
+# Intended Architecture for the Problem # 
+```text
 INPUT -> [[CONV -> RELU]*N -> POOL?]*M -> [FC -> RELU]*K -> FC
+```
 
-conv → ReLU → pool
-conv → ReLU → pool
-conv → ReLU → pool
-conv → ReLU → pool
+```text
+conv1 → ReLU → pool1
+conv2 → ReLU → pool2
+conv3 → ReLU → pool3
+conv4 → ReLU → pool4
 flatten
 linear → ReLU
 linear → ReLU
 linear (the output)
+```
 
-## Mathematical Breakdown ## 
-
-# Hout = floor[(Hin + 2(P) - K) / S)] + 1
-where: 
-Hout = the height of the output image (and the width since we are using square images)
-Hin = the input height of the image (structure uses a cascading structure therefore the input of one is the output of the last)
-P = Padding value - amount of -infinity values added around the image to allow the kernel to move across everything 
-K = Kernel size (2 = 2x2 kernel), the window we slide over the image, used in pooling to get the maximum value in a window which will make the image smaller 
-S = Stride, the number of pixels the kernel moves in each step 
-Floor function is used in case of any non-integer values 
-
+# **Mathematical Breakdown** #
 
 | Type | $k$ | $s$ | $p$ |
 | :--- | :-: | :-: | :-: |
 | conv | 3   | 1   | 1   |
 | pool | 2   | 2   | 0   |
+
+
+## Output size formulas
+
+General form, for height and width (dilation 1):
+
+$$H_{out} = \left\lfloor \frac{H_{in} + 2p - k}{s} \right\rfloor + 1$$
+
+where $k$ is the kernel (window) size, $s$ the stride and $p$ the padding on each side.
+
+### Conv layer ($k=3$, $s=1$, $p=1$)
+
+$$H_{out} = \left\lfloor \frac{H_{in} + 2(1) - 3}{1} \right\rfloor + 1 = H_{in}$$
+
+Height and width are unchanged. Channels: $C_{out}$ = number of filters.
+
+### Pool layer ($k=2$, $s=2$, $p=0$)
+
+$$H_{out} = \left\lfloor \frac{H_{in} + 2(0) - 2}{2} \right\rfloor + 1 = \left\lfloor \frac{H_{in}}{2} \right\rfloor$$
+
+Height and width are halved. Channels: $C_{out} = C_{in}$ (unchanged).
+### conv1
+
+$$H_{out} = \left\lfloor \frac{256 + 2(1) - 3}{1} \right\rfloor + 1 = 256$$
+
+### pool1
+
+$$H_{out} = \left\lfloor \frac{256 + 2(0) - 2}{2} \right\rfloor + 1 = 128$$
+
+
+
+
+
+
+
+
+
+
