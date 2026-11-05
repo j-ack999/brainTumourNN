@@ -83,7 +83,7 @@ dataset = BrainTumourDataset("cleaned", "Training")
 
 
 def main():
-    # data_inspection() # **UNCOMMENT AND RUN AT EACH SESSION**
+    data_inspection() # **UNCOMMENT AND RUN AT EACH SESSION**
     full_train = BrainTumourDataset("cleaned", "Training", transform=transform)
     indices = list(range(len(full_train)))
     # list of labels
