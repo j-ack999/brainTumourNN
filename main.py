@@ -10,7 +10,8 @@ from collections import Counter
 from PIL import Image
 import numpy as np
 import matplotlib.pyplot as plt
-import pandas as pd
+
+from model_architecture import *
 
 
 #   #   #   #   #   #   #   #   #
@@ -139,13 +140,10 @@ def main():
     # print labels for the batch
     print(' '.join(f'{classes[batch_labels[j]]:5s}' for j in range(batch_size)))
 
-    
 
-    
+    # pull in the defined network from the other file 
 
-
-
-
+    net = NeuralNetwork()
 
 
 if __name__ == "__main__":
