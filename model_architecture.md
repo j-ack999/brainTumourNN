@@ -34,13 +34,12 @@ where $k$ is the kernel (window) size, $s$ the stride and $p$ the padding on eac
 
 $$H_{out} = \left\lfloor \frac{H_{in} + 2(1) - 3}{1} \right\rfloor + 1 = H_{in}$$
 
-Height and width are unchanged. Channels: $C_{out}$ = number of filters.
+
 
 ### Pool layer ($k=2$, $s=2$, $p=0$)
 
 $$H_{out} = \left\lfloor \frac{H_{in} + 2(0) - 2}{2} \right\rfloor + 1 = \left\lfloor \frac{H_{in}}{2} \right\rfloor$$
 
-Height and width are halved. Channels: $C_{out} = C_{in}$ (unchanged).
 ### conv1
 
 $$H_{out} = \left\lfloor \frac{256 + 2(1) - 3}{1} \right\rfloor + 1 = 256$$
