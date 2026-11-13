@@ -62,15 +62,8 @@ print(dataset.class_to_idx)
 
              
 
-
-
-
-
-
-
-
 def main():
-    # data_inspection() # **UNCOMMENT AND RUN AT EACH SESSION**
+    # data_inspection() # **UNCOMMENT AND RUN AT EACH SESSION!!!**
     full_train = datasets.ImageFolder("cleaned/Training", transform=transform)
     indices = list(range(len(full_train)))
     labels = full_train.targets # classification of each image 
